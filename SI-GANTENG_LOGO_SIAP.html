@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SI-GANTENG | Puskesmas Pondokgede</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+background:#eef3f8;
+color:#333;
+}
+header{
+background:linear-gradient(135deg,#2f80ed,#3f7cff);
+padding:40px 20px;
+text-align:center;
+color:#fff;
+}
+.logo-group{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+.logo-group img{
+height:95px;
+background:#fff;
+padding:8px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+header h1{
+font-size:42px;
+margin-bottom:8px;
+}
+header h2{
+font-size:22px;
+font-weight:normal;
+margin-bottom:15px;
+}
+header p{
+font-size:18px;
+}
+
+.container{
+max-width:900px;
+margin:-30px auto 30px;
+padding:20px;
+}
+
+.card{
+background:#fff;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+h3{
+color:#2f80ed;
+margin:25px 0 15px;
+font-size:30px;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+input,select,textarea{
+width:100%;
+padding:13px;
+margin-top:6px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:15px;
+}
+
+textarea{
+height:160px;
+resize:vertical;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:15px;
+background:#2f80ed;
+color:#fff;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1c63c7;
+}
+
+footer{
+background:#2f80ed;
+color:#fff;
+text-align:center;
+padding:18px;
+margin-top:30px;
+}
+
+@media(max-width:600px){
+header h1{font-size:32px}
+header h2{font-size:18px}
+.logo-group img{height:75px}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo-group">
+    <img src="./logo.jpeg"
+         alt="Logo"
+         width="300">
+</div>
+<h1>SI-GANTENG</h1>
+<h2>(Sistem Informasi penGaduan dan Keluhan Terintegrasi)</h2>
+<p><b>Website Resmi Pengaduan Pelayanan Kesehatan</b><br/>
+Puskesmas Pondokgede</p>
+</header>
+<div class="container">
+<div class="card">
+<h3>Tentang Kami</h3>
+<p>
+Puskesmas Pondokgede berkomitmen memberikan pelayanan kesehatan terbaik.
+Silakan sampaikan kritik, saran, maupun pengaduan melalui formulir berikut.
+</p>
+<h3>Formulir Pengaduan</h3>
+<form>
+<label>Nama Lengkap</label>
+<input id="nama" placeholder="Masukkan nama lengkap" type="text"/>
+<label>Nomor Telepon</label>
+<input id="nohp" placeholder="08xxxxxxxxxx" type="tel"/>
+<label>Jenis Pengaduan</label>
+<select id="jenis">
+<option>Pilih Jenis Pengaduan</option>
+<option>Pelayanan Medis</option>
+<option>Fasilitas</option>
+<option>Perilaku Petugas</option>
+<option>Lainnya</option>
+</select>
+<label>Deskripsi Pengaduan</label>
+<textarea id="deskripsi" placeholder="Tuliskan pengaduan Anda..."></textarea>
+<button type="submit">Kirim Pengaduan</button>
+</form>
+<h3>Kontak Kami</h3>
+<p><b>Alamat</b><br/>
+Jl. Camar V RT 003 RW 007 Kel. Jaticempaka,
+Kec. Pondokgede,
+Kota Bekasi 17416
+</p>
+<br/>
+<p><b>Telepon</b><br/>
+(021) 847-4402
+</p>
+</div>
+</div>
+<footer>
+© 2026 Puskesmas Pondokgede
+</footer>
+<script>
+document.querySelector('form').addEventListener('submit',async(e)=>{
+e.preventDefault();
+const data={nama:nama.value,nohp:nohp.value,jenis:jenis.value,deskripsi:deskripsi.value};
+const r=await fetch('https://script.google.com/macros/s/AKfycbxGH3S6mARgZtZKB7UWUfegA47wb_Vhw6DJ_os_-NmE6WoCr8qvfG8jxZebhKPCaaeX/exec',{method:'POST',body:JSON.stringify(data)});
+alert('Pengaduan berhasil dikirim');
+e.target.reset();
+});
+</script></body>
+</html>
